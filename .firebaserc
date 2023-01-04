@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-personal-portfolio-3f485": {
+      "hosting": {
+        "Frontend": [
+          "my-personal-portfolio-3f485"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-personal-portfolio-3f485"
+  }
+}
