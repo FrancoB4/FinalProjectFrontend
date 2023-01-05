@@ -12,6 +12,8 @@ import { AcademicComponent } from './components/academic/academic.component';
 import { CompetencesComponent } from './components/academic/competences/competences.component';
 import { StudiesComponent } from './components/academic/studies/studies.component';
 import { CertificationsComponent } from './components/academic/certifications/certifications.component';
+import { LoginComponent } from './components/login/login.component';
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,11 +27,14 @@ import { CertificationsComponent } from './components/academic/certifications/ce
     CompetencesComponent,
     StudiesComponent,
     CertificationsComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

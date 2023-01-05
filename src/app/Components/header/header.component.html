@@ -1,24 +1,22 @@
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
-        <a class="col-1 navbar-brand ps-2">FBV</a>
-        <ul class="navbar-nav col-auto">
-          <div class="row pe-2">
-            <li class="nav-item active col-auto ps-sm-1 ps-1">
-                <a class="nav-link" routerLink="/home">Home</a>
-            </li>
-            <li class="nav-item col-auto ps-sm-1 ps-1">
-                <a class="nav-link" routerLink="/about">About Me</a>
-            </li>
-            <li class="nav-item col-auto ps-sm-1 ps-1">
-                <a class="nav-link" routerLink="/contact">Projects</a>
-            </li>
-            <li class="nav-item col-auto ps-sm-1 ps-1">
-                <a class="nav-link" routerLink="/contact">Contact</a>
-            </li>
-          </div>
-        </ul>
+    <nav class="navbar navbar-dark fixed-top bg-dark justify-content-between">
+      <a class="col-1 navbar-brand ps-2">FBV</a>
+      <ul class="navbar-nav col-auto">
+        <div class="row pe-2">
+          <li class="nav-item active col-auto ps-sm-1 ps-1">
+            <a class="nav-link" routerLink="/home">Home</a>
+          </li>
+          <li *ngIf="!loggedIn" class="nav-item col-auto ps-sm-1 ps-1">
+            <button class="btn btn-outline-success" (click)="onLogin()">Login</button>
+          </li>
+          <li *ngIf="loggedIn" class="nav-item col-auto ps-sm-1 ps-1">
+            <button class="btn btn-outline-success" (click)="onLogout()">Logout</button>
+          </li>
+        </div>
+      </ul>
     </nav>
   </div>
-  <app-about-me class="row"></app-about-me>
+  <app-about-me class="row mt-5"></app-about-me>
+  <app-login *ngIf="loginIn" class="fixed-top mt-5" (logingData)="login($event)"></app-login>
 </div>
