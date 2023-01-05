@@ -33,11 +33,12 @@ export class HeaderComponent {
   login(data: {username: string, password: string}) {
     this.userData = data;
     console.log(this.userData)
-    this.userService.getUsers().subscribe((user) => {
-      console.log(user);
-      // if (user.username === this.userData.username && user.password === this.userData.password) {
-      //   this.successLogin();
-      // }
+    this.userService.getUsers().subscribe((user:any) => {
+      console.log(user[0]);
+      if (user[0].username === this.userData.username && user[0].password === this.userData.password) {
+        this.successLogin();
+        console.log("success");
+      }
     });
   }
 }
