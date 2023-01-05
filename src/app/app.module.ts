@@ -13,7 +13,8 @@ import { CompetencesComponent } from './components/academic/competences/competen
 import { StudiesComponent } from './components/academic/studies/studies.component';
 import { CertificationsComponent } from './components/academic/certifications/certifications.component';
 import { LoginComponent } from './components/login/login.component';
-import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
