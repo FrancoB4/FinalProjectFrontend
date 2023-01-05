@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,11 @@ export class HeaderComponent {
   loggedIn = false;
   userData: {username: string, password: string} = {} as {username: string, password: string};
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    userService.getUsers().subscribe((users) => {
+      console.log(users);
+    });
+  }
 
   onLogin() {
     this.loginIn = !this.loginIn;
@@ -27,6 +32,12 @@ export class HeaderComponent {
 
   login(data: {username: string, password: string}) {
     this.userData = data;
-    console.log(this.userData);
+    console.log(this.userData)
+    this.userService.getUsers().subscribe((user) => {
+      console.log(user);
+      // if (user.username === this.userData.username && user.password === this.userData.password) {
+      //   this.successLogin();
+      // }
+    });
   }
 }

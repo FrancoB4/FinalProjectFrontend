@@ -14,6 +14,5 @@ export class ProjectsComponent {
     this.projectService.getProjects().subscribe(value => {
       this.projects = value
     });
-    console.log(this.projects);
   }
 }

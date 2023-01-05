@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit} from '@angular/core';
 import { Input, Output } from "@angular/core";
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   get Username() {
     return this.form.get('username');

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +15,6 @@ import { CompetencesComponent } from './components/academic/competences/competen
 import { StudiesComponent } from './components/academic/studies/studies.component';
 import { CertificationsComponent } from './components/academic/certifications/certifications.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { HttpClientModule } from "@angular/common/http";
     CompetencesComponent,
     StudiesComponent,
     CertificationsComponent,
-    LoginComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
