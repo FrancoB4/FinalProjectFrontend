@@ -11,7 +11,7 @@ import {UserService} from "../../services/user.service";
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  @Output() logingData = new EventEmitter<{username: string, password: string}>();
+  @Output() loggingData = new EventEmitter<{username: string, password: string}>();
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.logingData.emit({
+      this.loggingData.emit({
         username: this.Username?.value,
         password: this.Password?.value
       });

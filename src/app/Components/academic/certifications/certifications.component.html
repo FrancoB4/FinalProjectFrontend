@@ -2,14 +2,28 @@
   <div class="row">
     <h1>Certificaciones: </h1>
   </div>
-  <div class="row card-group pb-2">
+  <div class="row card-group pb-2 ps-3 pe-2">
     <!-- For loop in future -->
-      <div *ngFor="let i of x" class="col-md-3 pb-2">
-        <div class="card">
-          <a href="https://github.com/FrancoB4/FinalProjectFrontend" target="_blank">
-            <img src="https://i.pinimg.com/564x/34/93/63/349363f73373c0783b5ea72086232202.jpg" class="card-img-top" alt="...">
-          </a>
+    <div *ngFor="let cert of certifications" class="col-md-3 ps-0">
+      <div class="card position-relative">
+        <a href="{{cert.url}}" target="_blank">
+          <img src="{{cert.url_img}}" class="card-img-top" alt="...">
+        </a>
+        <div *ngIf="loggedIn" class="col-auto bg-transparent position-absolute top-0 end-0 me-1 mt-1">
+          <button class="btn rounded-circle btn-success">A</button>
         </div>
       </div>
+    </div>
+
+    <div *ngFor="let _ of x" class="col-md-3 ps-0">
+      <div class="card position-relative ps-0">
+        <a href="https://github.com/FrancoB4/FinalProjectFrontend" target="_blank">
+          <img src="https://i.pinimg.com/564x/34/93/63/349363f73373c0783b5ea72086232202.jpg" class="card-img-top" alt="...">
+        </a>
+        <div *ngIf="loggedIn" class="col-auto bg-transparent position-absolute top-0 end-0 me-1 mt-1">
+          <button class="btn rounded-circle btn-success">A</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

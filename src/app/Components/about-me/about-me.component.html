@@ -2,9 +2,12 @@
      style="background-color: rgb(22, 70, 77);">
   <div class="row mb-0 mt-1">
     <div class="col-lg-4 col-md-4 col-sm-4 col-4"></div>
-    <div class="col-4 justify-content-md-center">
-      <div class="img-fluid rounded-circle border">
+    <div class="col-4 justify-content-md-center position-relative">
+      <div class="col-auto img-fluid rounded-circle border">
         <img src="assets/icons/My_image.jpg" alt="logo" class="img-fluid rounded-circle">
+      </div>
+      <div *ngIf="loggedIn" class="position-absolute top-0 end-0">
+        <button class="btn rounded-circle btn-success">A</button>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
@@ -20,9 +23,14 @@
           <img class="img-fluid" src="../../../assets/icons/twitter.png" alt=""></a></button>
     </div>
   </div>
-  <div class="row text-center justify-content-center">
-    <h1 class="col-auto masthead-heading text-uppercase"
-                       style="color: #D0C6AC;">Franco Bonfiglio Vazquez
-    </h1>
+  <div class="row position-relative">
+    <div class="col-12 text-center justify-content-center">
+      <h1 class="col-auto masthead-heading text-uppercase "
+                         style="color: #D0C6AC;">Franco Bonfiglio Vazquez
+      </h1>
+    </div>
+    <div *ngIf="loggedIn" class="position-absolute">
+      <button class="btn rounded-circle btn-success">A</button>
+    </div>
   </div>
 </div>

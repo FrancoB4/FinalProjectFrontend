@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit, Output} from '@angular/core';
+import { Subscription } from "rxjs/internal/Subscription";
 import {UserService} from "../../services/user.service";
+import {LoggedService} from "../../services/logged.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
+  @Output() loggedServiceSubscription: Subscription | undefined;
   loginIn = false;
-  loggedIn = false;
+  loggedIn: boolean = false;
   userData: {username: string, password: string} = {} as {username: string, password: string};
 
-  constructor(private userService: UserService) {
-    userService.getUsers().subscribe((users) => {
-      console.log(users);
+  constructor(private userService: UserService, private loggedService: LoggedService) {}
+
+  ngOnInit() {
+    this.loggedServiceSubscription = this.loggedService.isLoggedIn().subscribe((value: boolean) => {
+      this.loggedIn = value;
     });
   }
 
@@ -21,24 +26,25 @@ export class HeaderComponent {
     this.loginIn = !this.loginIn;
   }
   onLogout() {
-    this.loggedIn = false;
+    this.loggedService.setLoggedIn(false);
     this.loginIn = false;
   }
 
   successLogin() {
-    this.loggedIn = true;
+    this.loggedService.setLoggedIn(true);
     this.loginIn = false;
   }
 
   login(data: {username: string, password: string}) {
     this.userData = data;
-    console.log(this.userData)
     this.userService.getUsers().subscribe((user:any) => {
-      console.log(user[0]);
       if (user[0].username === this.userData.username && user[0].password === this.userData.password) {
         this.successLogin();
-        console.log("success");
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.loggedServiceSubscription?.unsubscribe();
   }
 }

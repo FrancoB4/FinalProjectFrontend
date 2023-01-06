@@ -15,6 +15,7 @@ import { CompetencesComponent } from './components/academic/competences/competen
 import { StudiesComponent } from './components/academic/studies/studies.component';
 import { CertificationsComponent } from './components/academic/certifications/certifications.component';
 import { LoginComponent } from './components/login/login.component';
+import {LoggedService} from "./services/logged.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { LoginComponent } from './components/login/login.component';
         FormsModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [LoggedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
