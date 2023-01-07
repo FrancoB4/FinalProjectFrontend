@@ -1,78 +1,24 @@
 <div class="container d-flex flex-column bg-dark f position-relative shadow mb-3 pt-1">
-  <h1 class="text-light">Mis Proyectos:</h1>
-  <div *ngIf="loggedIn" class="position-absolute top-0 end-0 mt-1 me-1">
-    <a class="btn rounded-circle btn-success">+</a>
+  <div class="row justify-content-between">
+    <h1 class="col-auto ms-3 mt-2 text-light border-end border-bottom border-light">MIS PROYECTOS:</h1>
+    <div *ngIf="loggedIn" class="col-auto mt-2">
+      <button class="btn rounded-circle btn-success" (click)="toggleAdd()">+</button>
+    </div>
   </div>
+
+
+  <app-create-project *ngIf="adding && loggedIn"></app-create-project>
+
   <div class="row card-group">
     <!-- For bucle in future -->
     <div *ngFor="let project of projects" class="col-md-4 mb-3">
       <div class="card text-dark bg-light">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/fb/80/cc/fb80ccbceb81014bd12f826437548e51.jpg" alt="Card image cap">
+        <img class="card-img-top" src="{{project.image}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{project.name}}</h5>
+          <h3 class="card-title text-uppercase">{{project.name}}</h3>
           <p class="card-text">{{project.description}}</p>
           <div class="row justify-content-between ms-1">
-            <a href="{{project.url}}" class="btn btn-primary col-auto">Go somewhere</a>
-            <div *ngIf="loggedIn" class="col-auto">
-              <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card text-dark bg-light">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/fb/80/cc/fb80ccbceb81014bd12f826437548e51.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Proyecto 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="row justify-content-between ms-1">
-            <a href="#" class="btn btn-primary col-auto">Go somewhere</a>
-            <div *ngIf="loggedIn" class="col-auto">
-              <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card text-dark bg-light">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/fb/80/cc/fb80ccbceb81014bd12f826437548e51.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Proyecto 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="row justify-content-between ms-1">
-            <a href="#" class="btn btn-primary col-auto">Go somewhere</a>
-            <div *ngIf="loggedIn" class="col-auto">
-              <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card text-dark bg-light">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/fb/80/cc/fb80ccbceb81014bd12f826437548e51.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Proyecto 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="row justify-content-between ms-1">
-            <a href="#" class="btn btn-primary col-auto">Go somewhere</a>
-            <div *ngIf="loggedIn" class="col-auto">
-              <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card text-dark bg-light">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/fb/80/cc/fb80ccbceb81014bd12f826437548e51.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Proyecto 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="row justify-content-between ms-1">
-            <a href="#" class="btn btn-primary col-auto">Go somewhere</a>
+            <a href="{{project.url}}" class="btn btn-primary col-auto" target="_blank">Go somewhere</a>
             <div *ngIf="loggedIn" class="col-auto">
               <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
             </div>

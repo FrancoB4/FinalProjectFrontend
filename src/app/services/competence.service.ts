@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Competence } from "../model/competence";
 
@@ -7,15 +7,18 @@ import { Competence } from "../model/competence";
   providedIn: 'root'
 })
 export class CompetenceService {
-  private url: string = "https://backend-service-web.onrender.com/competence";
+  private url: string = "https://backend-service-web.onrender.com/projects";
   constructor(private http: HttpClient) { }
 
   getCompetences(): Observable<Competence[]> {
     return this.http.get<Competence[]>(this.url);
   }
 
-  create(project: Competence): Observable<Competence> {
-    return this.http.post<Competence>(this.url, project);
+  create(competence: Competence): Observable<Competence> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams().append('name', competence.name)
+      .append('level', competence.level);
+    return this.http.post<Competence>(this.url + "/create", JSON.stringify({}), {headers: headers, params: params});
   }
 
   getCompetenceById(id: number): Observable<Competence> {

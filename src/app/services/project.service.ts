@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Project} from "../model/project";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  private url: string = "https://backend-service-web.onrender.com/project";
+  private url: string = "https://backend-service-web.onrender.com/projects";
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<Project[]> {
@@ -15,7 +15,14 @@ export class ProjectService {
   }
 
   create(project: Project): Observable<Project> {
-    return this.http.post<Project>(this.url, project);
+    const headers = new HttpHeaders();
+    const params = new HttpParams()
+      .append('name', project.name)
+      .append('description', project.description)
+      .append('url', project.url)
+      .append('image', project.image);
+    return this.http.post<Project>(this.url + "/create", JSON.stringify({}), {headers: headers,
+      params: params});
   }
 
   getProjectById(id: number): Observable<Project> {

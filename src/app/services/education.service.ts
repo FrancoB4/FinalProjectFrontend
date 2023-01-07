@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Study} from "../model/study";
 
@@ -7,15 +7,21 @@ import {Study} from "../model/study";
   providedIn: 'root'
 })
 export class EducationService {
-  private url: string = "https://backend-service-web.onrender.com/education";
+  private url: string = "https://backend-service-web.onrender.com/projects";
   constructor(private http: HttpClient) { }
 
   getEducations(): Observable<Study[]> {
     return this.http.get<Study[]>(this.url);
   }
 
-  create(project: Study): Observable<Study> {
-    return this.http.post<Study>(this.url, project);
+  create(study: Study): Observable<Study> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams()
+      .append('institution', study.institution)
+      .append('description', study.description)
+      .append('date', study.date)
+      .append('state', study.state);
+    return this.http.post<Study>(this.url + "/create", JSON.stringify({}), {headers: headers, params: params});
   }
 
   getEducationById(id: number): Observable<Study> {

@@ -1,0 +1,28 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-6 col-lg-5 col-xl-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Add Project:</h5>
+          <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter email"
+                   formControlName="name">
+            <label for="description">Description</label>
+            <textarea class="form-control mb-1" id="description" placeholder="Project description"
+                      formControlName="description" rows="3"></textarea>
+            <label for="url">Link</label>
+            <input type="text" class="form-control mb-1" id="url" placeholder="link"
+                   formControlName="url" height="20">
+            <label for="image">Image Link</label>
+            <input type="text" class="form-control mb-1" id="image" placeholder="Image link"
+                   formControlName="image" height="20">
+            <div class="row justify-content-end">
+              <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

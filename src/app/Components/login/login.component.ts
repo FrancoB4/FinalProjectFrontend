@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
-import { Input, Output } from "@angular/core";
+import { Output } from "@angular/core";
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UserService} from "../../services/user.service";

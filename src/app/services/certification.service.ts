@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Certification} from "../model/certification";
 
@@ -7,15 +7,18 @@ import {Certification} from "../model/certification";
   providedIn: 'root'
 })
 export class CertificationService {
-  private url: string = "https://backend-service-web.onrender.com/certification";
+  private url: string = "https://backend-service-web.onrender.com/certifications";
   constructor(private http: HttpClient) { }
 
   getCertifications(): Observable<Certification[]> {
     return this.http.get<Certification[]>(this.url);
   }
 
-  create(project: Certification): Observable<Certification> {
-    return this.http.post<Certification>(this.url, project);
+  create(certification: Certification): Observable<Certification> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams().append('name', certification.url)
+      .append('description', certification.url_img);
+    return this.http.post<Certification>(this.url + "/create", JSON.stringify({}), {headers: headers, params: params});
   }
 
   getCertificationById(id: number): Observable<Certification> {

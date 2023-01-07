@@ -1,0 +1,13 @@
+.card-img-container {
+  height: 15rem;
+}
+
+.card-img-top {
+  height: 13rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  box-shadow: 0 -8px 6px 0 rgba(0, 0, 0, 0.55);
+}

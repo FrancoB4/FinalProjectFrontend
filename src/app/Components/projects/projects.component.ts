@@ -13,6 +13,7 @@ export class ProjectsComponent implements OnDestroy {
   projects: Project[] = [];
   private loggedServiceSubscription: Subscription | undefined;
   public loggedIn: boolean = false;
+  public adding: boolean = false;
 
   constructor(private projectService: ProjectService, private loggedService: LoggedService) {
     this.projectService.getProjects().subscribe(value => {
@@ -25,5 +26,9 @@ export class ProjectsComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.loggedServiceSubscription?.unsubscribe();
+  }
+
+  toggleAdd() {
+    this.adding = !this.adding;
   }
 }

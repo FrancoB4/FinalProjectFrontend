@@ -7,7 +7,6 @@ import { MatIconModule } from "@angular/material/icon";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BodyComponent } from './components/body/body.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -18,12 +17,12 @@ import { CertificationsComponent } from './components/academic/certifications/ce
 import { LoginComponent } from './components/login/login.component';
 import { LoggedService } from "./services/logged.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent,
     AboutMeComponent,
     ProjectsComponent,
     ContactComponent,
@@ -31,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CompetencesComponent,
     StudiesComponent,
     CertificationsComponent,
-    LoginComponent
+    LoginComponent,
+    CreateProjectComponent
   ],
     imports: [
         BrowserModule,
