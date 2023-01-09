@@ -13,9 +13,9 @@ export class CreateProjectComponent {
 
   constructor(private fb: FormBuilder, private projectService: ProjectService) {
     this.form = fb.group({
-      name: ['', Validators.required],
+      institution: ['', Validators.required],
       description: ['', Validators.required],
-      url: ['', Validators.required],
+      date: ['', Validators.required],
       image: ['', Validators.required]
     });
   }

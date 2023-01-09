@@ -6,8 +6,8 @@ import {Study} from "../model/study";
 @Injectable({
   providedIn: 'root'
 })
-export class EducationService {
-  private url: string = "https://backend-service-web.onrender.com/projects";
+export class StudyService {
+  private url: string = "https://backend-service-web.onrender.com/studies";
   constructor(private http: HttpClient) { }
 
   getEducations(): Observable<Study[]> {

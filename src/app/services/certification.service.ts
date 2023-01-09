@@ -22,7 +22,7 @@ export class CertificationService {
   }
 
   getCertificationById(id: number): Observable<Certification> {
-    return this.http.get<Certification>(this.url+ "/" + id);
+    return this.http.get<Certification>(this.url + "/" + id);
   }
 
   deleteCertification(id: number): Observable<Certification> {

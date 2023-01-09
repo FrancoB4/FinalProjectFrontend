@@ -14,6 +14,7 @@ export class CompetencesComponent implements OnInit, OnDestroy {
   private loggedServiceSubscription: Subscription | undefined;
   public competences: Competence[] = [];
   public loggedIn: boolean | undefined;
+  public adding: boolean = false;
 
 
   constructor(private loggedService: LoggedService, private competencesService: CompetenceService) {
@@ -23,6 +24,10 @@ export class CompetencesComponent implements OnInit, OnDestroy {
     this.competencesService.getCompetences().subscribe(value => {
       this.competences = value;
     });
+  }
+
+  toggleAdding() {
+    this.adding = !this.adding;
   }
 
   ngOnInit(): void {

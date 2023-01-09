@@ -1,13 +1,19 @@
-<div class="container text-light bg-dark">
-  <div class="row">
-    <h1>Certificaciones: </h1>
+<div class="container text-light">
+  <div class="row justify-content-between">
+    <h1 class="col-auto ms-3 mt-2 text-light border-end border-bottom border-light">CERTIFICACIONES: </h1>
+    <div *ngIf="loggedIn" class="col-auto mt-2">
+      <button class="btn rounded-circle btn-success" (click)="toggleAdd()">+</button>
+    </div>
   </div>
+
+  <app-create-certification *ngIf="adding && loggedIn"></app-create-certification>
+
   <div class="row card-group pb-2 ps-3 pe-2">
     <!-- For loop in future -->
-    <div *ngFor="let cert of certifications" class="col-md-3 ps-0">
+    <div *ngFor="let cert of certifications" class="col-md-3 ps-0 pb-2">
       <div class="card position-relative">
         <a href="{{cert.url}}" target="_blank">
-          <img src="{{cert.url_img}}" class="card-img-top" alt="...">
+          <img src="{{cert.url_img}}" class="card-img-top img-fluid" alt="...">
         </a>
         <div *ngIf="loggedIn" class="col-auto bg-transparent position-absolute top-0 end-0 me-1 mt-1">
           <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
@@ -15,7 +21,7 @@
       </div>
     </div>
 
-    <div *ngFor="let _ of x" class="col-md-3 ps-0">
+    <div *ngFor="let _ of x" class="col-md-3 ps-0 pb-3">
       <div class="card position-relative ps-0">
         <a href="https://github.com/FrancoB4/FinalProjectFrontend" target="_blank">
           <img src="https://i.pinimg.com/564x/34/93/63/349363f73373c0783b5ea72086232202.jpg" class="card-img-top" alt="...">

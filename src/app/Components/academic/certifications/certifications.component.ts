@@ -13,6 +13,7 @@ export class CertificationsComponent implements OnDestroy{
   private loggedServiceSubscription: Subscription | undefined;
   public certifications: Certification[] = []
   public loggedIn: boolean = false;
+  public adding: boolean = false;
 
   constructor(private certificationService: CertificationService, private loggedService: LoggedService) {
     this.loggedServiceSubscription = loggedService.isLoggedIn().subscribe(value => {
@@ -27,4 +28,8 @@ export class CertificationsComponent implements OnDestroy{
   }
 
   x = [1, 2, 3, 4, 5];
+
+  toggleAdd() {
+    this.adding = !this.adding;
+  }
 }

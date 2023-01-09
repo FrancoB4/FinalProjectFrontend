@@ -7,7 +7,7 @@ import { Competence } from "../model/competence";
   providedIn: 'root'
 })
 export class CompetenceService {
-  private url: string = "https://backend-service-web.onrender.com/projects";
+  private url: string = "https://backend-service-web.onrender.com/competences";
   constructor(private http: HttpClient) { }
 
   getCompetences(): Observable<Competence[]> {
@@ -22,7 +22,7 @@ export class CompetenceService {
   }
 
   getCompetenceById(id: number): Observable<Competence> {
-    return this.http.get<Competence>(this.url+ "/" + id);
+    return this.http.get<Competence>(this.url + "/" + id);
   }
 
   deleteCompetence(id: number): Observable<Competence> {

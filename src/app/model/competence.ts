@@ -4,7 +4,7 @@ export class Competence {
   level: number;
   levels: number[];
 
-  constructor(id:number, name: string, level: number) {
+  constructor(name: string, level: number, id?:number) {
     this.id = id;
     this.name = name;
     this.level = level;

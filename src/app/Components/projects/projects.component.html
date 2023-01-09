@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column bg-dark f position-relative shadow mb-3 pt-1">
+<div class="container d-flex flex-column position-relatives mb-3 pt-1">
   <div class="row justify-content-between">
     <h1 class="col-auto ms-3 mt-2 text-light border-end border-bottom border-light">MIS PROYECTOS:</h1>
     <div *ngIf="loggedIn" class="col-auto mt-2">
@@ -11,7 +11,7 @@
 
   <div class="row card-group">
     <!-- For bucle in future -->
-    <div *ngFor="let project of projects" class="col-md-4 mb-3">
+    <div *ngFor="let project of projects" class="col-xl-3 col-md-4 col-sm-6 col-12 mb-3">
       <div class="card text-dark bg-light">
         <img class="card-img-top" src="{{project.image}}" alt="Card image cap">
         <div class="card-body">

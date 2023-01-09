@@ -3,7 +3,7 @@ export class Certification {
   url: string;
   url_img: string;
 
-  constructor(id:number, url: string, url_img: string) {
+  constructor(url: string, url_img: string, id?:number) {
     this.id = id;
     this.url = url;
     this.url_img = url_img;

@@ -2,9 +2,11 @@
   <div class="row justify-content-between">
     <h4 class="col-auto">Educación:</h4>
     <div *ngIf="loggedIn" class="col-auto">
-      <button class="btn rounded-circle btn-success">+</button>
+      <button class="btn rounded-circle btn-success" (click)="toggleAdding()">+</button>
     </div>
   </div>
+
+  <app-create-study *ngIf="adding && loggedIn"></app-create-study>
 
   <div class="container me-0">
     <div *ngFor="let study of studies" class="row border-bottom mb-2">

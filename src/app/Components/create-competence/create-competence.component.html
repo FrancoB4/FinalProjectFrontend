@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Add Competence:</h5>
+          <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter url"
+                   formControlName="name">
+            <label for="level">Level</label>
+            <input type="number" class="form-control mb-1" id="level"
+                   formControlName="level">
+            <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

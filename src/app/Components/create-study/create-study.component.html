@@ -1,0 +1,28 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-10 col-lg-8 col-xl-7">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center text-dark">Add Study</h5>
+          <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
+            <label for="institution">Institution</label>
+            <input type="text" class="form-control" id="institution" placeholder="Enter institution"
+                   formControlName="institution">
+            <label for="description">Description</label>
+            <textarea class="form-control mb-1" id="description" placeholder="Project description"
+                      formControlName="description" rows="3"></textarea>
+            <label for="date">Date</label>
+            <input type="date" class="form-control mb-1" id="date" placeholder="Enter Date ('start-year - end-year')"
+                   formControlName="date">
+            <label for="state">State</label>
+            <input type="text" class="form-control mb-1" id="state" placeholder="Enter State. Example 'finished'/'in progress'"
+                   formControlName="state" height="20">
+            <div class="row justify-content-end">
+              <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

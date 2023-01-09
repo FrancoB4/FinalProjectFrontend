@@ -1,12 +1,26 @@
 <div class="master-background" id="master-background">
   <div class="container">
     <app-header class="row"></app-header>
-    <div class="row blur-background shadow-lg" style="margin: 70px -10px 20px -10px;">
-      <app-about-me></app-about-me>
+
+    <div class="row blur-background shadow-lg" style="margin: 70px 0 20px -24px;">
+      <app-about-me class="col"></app-about-me>
     </div>
-    <app-projects class="row"></app-projects>
-    <app-contact class="row"></app-contact>
-    <app-academic class="row"></app-academic>
+    <div class="row">
+      <div class="row bg-dark">
+        <app-projects class="col"></app-projects>
+      </div>
+      <div class="row blur-background">
+        <app-contact class="col"></app-contact>
+      </div>
+
+      <div class="row bg-dark">
+        <app-academic class="col"></app-academic>
+      </div>
+
+      <div class="row blur-background">
+        <app-certifications class="col"></app-certifications>
+      </div>
+    </div>
   </div>
 </div>
 

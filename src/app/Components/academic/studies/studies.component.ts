@@ -2,7 +2,7 @@ import {Component, OnDestroy} from '@angular/core';
 import {Subscription} from "rxjs/internal/Subscription";
 import {Study} from "../../../model/study";
 import {LoggedService} from "../../../services/logged.service";
-import {EducationService} from "../../../services/education.service";
+import {StudyService} from "../../../services/study.service";
 
 @Component({
   selector: 'app-studies',
@@ -13,14 +13,19 @@ export class StudiesComponent implements OnDestroy {
   private loggedServiceSubscription: Subscription | undefined;
   public studies: Study[] = [];
   public loggedIn: boolean | undefined;
+  public adding: boolean = false;
 
-  constructor(private loggedService: LoggedService, private educationService: EducationService) {
+  constructor(private loggedService: LoggedService, private educationService: StudyService) {
     this.loggedServiceSubscription = this.loggedService.isLoggedIn().subscribe(value => {
       this.loggedIn = value
     });
     this.educationService.getEducations().subscribe(value => {
       this.studies = value;
     });
+  }
+
+  toggleAdding() {
+    this.adding = !this.adding;
   }
 
   ngOnDestroy(): void {

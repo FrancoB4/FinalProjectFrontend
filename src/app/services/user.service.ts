@@ -19,7 +19,7 @@ export class UserService {
   }
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(this.url+ "/" + id);
+    return this.http.get<User>(this.url + "/" + id);
   }
 
   deleteUser(id: number): Observable<User> {

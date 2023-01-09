@@ -18,6 +18,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LoggedService } from "./services/logged.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { CreateStudyComponent } from './components/create-study/create-study.component';
+import { CreateCompetenceComponent } from './components/create-competence/create-competence.component';
+import { CreateCertificationComponent } from './components/create-certification/create-certification.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { CreateProjectComponent } from './components/create-project/create-proje
     StudiesComponent,
     CertificationsComponent,
     LoginComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    CreateStudyComponent,
+    CreateCompetenceComponent,
+    CreateCertificationComponent
   ],
     imports: [
         BrowserModule,
