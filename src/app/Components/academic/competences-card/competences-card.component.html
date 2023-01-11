@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col">
+    <div class="row justify-content-between">
+      <div class="col-auto"><p>{{name}}</p></div>
+      <div class="row col justify-content-end me-1">
+        <div class="col-auto px-0" *ngFor="let _ of levels"><p class="text-end">☆</p></div>
+      </div>
+    </div>
+    <app-competences-update *ngIf="updating&&loggedIn" class="row" [name]="name" [level]="level" [id]="id">
+    </app-competences-update>
+  </div>
+  <div *ngIf="loggedIn" class="col-auto">
+    <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"
+            (click)="toggleUpdating()"><mat-icon>border_color</mat-icon></button>
+  </div>
+</div>

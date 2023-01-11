@@ -1,1 +1,18 @@
-<p>competences-update works!</p>
+<div class="card text-dark">
+  <div class="card-body">
+    <h5 class="card-title text-center">Update Competence:</h5>
+    <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="{{name}}"
+             formControlName="name">
+
+      <label for="level">Level</label>
+      <input type="text" class="form-control mb-1" id="level" placeholder="{{level}}"
+             formControlName="level" height="20">
+
+      <div class="row justify-content-between">
+        <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

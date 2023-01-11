@@ -40,7 +40,7 @@ export class ProjectService {
       .append('description', project.description)
       .append('url', project.url)
       .append('image', project.image);
-    return this.http.patch<Project>(this.url + "/update" + project.id, JSON.stringify({}), {headers: headers,
+    return this.http.put<Project>(this.url + "/update" + project.id, JSON.stringify({}), {headers: headers,
       params: params});
   }
 }

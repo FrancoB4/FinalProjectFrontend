@@ -10,70 +10,10 @@
 
   <ul class="list-group list-group-flush">
 
-    <li *ngFor="let competence of competences" class="list-group-item text-light border-light">
-      <div class="row">
-        <div class="col-auto"><p>{{competence.name}}</p></div>
-        <div class="col"><p *ngFor="let i of competence.levels" class="text-end">☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
+    <li *ngFor="let competence of competences" class="list-group-item text-light border-light bg-dark">
+      <app-competences-card [name]="competence.name" [level]="competence.level" [id]="competence.id">
+      </app-competences-card>
     </li>
-
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Python Development</p></div>
-        <div class="col"><p class="text-end">☆☆☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Web Scraping</p></div>
-        <div class="col"><p class="text-end">☆☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Backend Development</p></div>
-        <div class="col"><p class="text-end">☆☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Game Development (Unity)</p></div>
-        <div class="col"><p class="text-end">☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Frontend Development</p></div>
-        <div class="col"><p class="text-end">☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent">
-      <div class="row">
-        <div class="col-auto"><p>Java Development</p></div>
-        <div class="col"><p class="text-end">☆☆☆</p></div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item text-light border-light bg-transparent"></li>
+    <li class="list-group-item text-light border-light bg-dark"></li>
   </ul>
 </div>

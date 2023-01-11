@@ -26,6 +26,9 @@ import { ProjectUpdateComponent } from './components/project-update/project-upda
 import { CompetencesUpdateComponent } from './components/academic/competences-update/competences-update.component';
 import { CertificationsUpdateComponent } from './components/academic/certifications-update/certifications-update.component';
 import { StudiesUpdateComponent } from './components/academic/studies-update/studies-update.component';
+import { CertificationsCardComponent } from './components/academic/certifications-card/certifications-card.component';
+import { CompetencesCardComponent } from './components/academic/competences-card/competences-card.component';
+import { StudiesCardComponent } from './components/academic/studies-card/studies-card.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { StudiesUpdateComponent } from './components/academic/studies-update/stu
     CompetencesUpdateComponent,
     CertificationsUpdateComponent,
     StudiesUpdateComponent,
+    CertificationsCardComponent,
+    CompetencesCardComponent,
+    StudiesCardComponent,
   ],
     imports: [
         BrowserModule,

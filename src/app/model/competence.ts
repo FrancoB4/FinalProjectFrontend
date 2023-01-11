@@ -2,12 +2,14 @@ export class Competence {
   id: number | undefined;
   name: string;
   level: number;
-  levels: number[];
+  levels: number[] = [];
 
   constructor(name: string, level: number, id?:number) {
     this.id = id;
     this.name = name;
     this.level = level;
-    this.levels = [1, 2, 3, 4, 5];
+    for (let i = this.level; i > 0; i--) {
+      this.levels.push(i);
+    }
   }
 }

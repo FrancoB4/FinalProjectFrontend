@@ -9,21 +9,8 @@
   <app-create-study *ngIf="adding && loggedIn"></app-create-study>
 
   <div class="container me-0 mt-2">
-    <div *ngFor="let study of studies" class="row border-bottom mb-2">
-      <div class="col-auto">
-        <h5>{{study.institution}}</h5>
-        <p>{{study.description}}</p>
-      </div>
-      <div class="col-auto row">
-        <div class="col-4">
-          <p class="text-end mb-2">{{study.date}}</p>
-          <p class="text-end">{{study.state}}</p>
-        </div>
-        <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
-        </div>
-      </div>
-    </div>
+    <app-studies-card *ngFor="let study of studies" class="row border-bottom mb-2 justify-content-between" [study]="study">
+    </app-studies-card>
 
     <div class="row border-bottom mb-2 justify-content-between">
       <div class="col-auto">

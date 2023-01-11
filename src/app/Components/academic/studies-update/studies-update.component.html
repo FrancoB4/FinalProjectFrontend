@@ -1,1 +1,26 @@
-<p>studies-update works!</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title text-center">Add Project:</h5>
+    <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
+      <label for="institution">Institution</label>
+      <input type="text" class="form-control" id="institution" placeholder="{{study.institution}}"
+             formControlName="institution">
+
+      <label for="description">Description</label>
+      <textarea class="form-control mb-1" id="description" placeholder="{{study.description}}"
+                formControlName="description" rows="3"></textarea>
+
+      <label for="url">From - To</label>
+      <input type="text" class="form-control mb-1" id="url" placeholder="{{study.date}}"
+             formControlName="date">
+
+      <label for="state">State</label>
+      <input type="text" class="form-control mb-1" id="state" placeholder="{{study.state}}"
+             formControlName="state">
+
+      <div class="row justify-content-between">
+        <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -33,6 +33,6 @@ export class CompetenceService {
     const headers = new HttpHeaders();
     const params = new HttpParams().append('name', competence.name)
       .append('level', competence.level);
-    return this.http.patch<Competence>(this.url + "/update" + competence.id, JSON.stringify({}), {headers: headers, params: params});
+    return this.http.put<Competence>(this.url + "/update" + competence.id, JSON.stringify({}), {headers: headers, params: params});
   }
 }

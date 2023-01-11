@@ -33,7 +33,7 @@ export class CertificationService {
     const headers = new HttpHeaders();
     const params = new HttpParams().append('name', certification.url)
       .append('description', certification.url_img);
-    return this.http.patch<Certification>(this.url + "/update" + certification.id, JSON.stringify({}),
+    return this.http.put<Certification>(this.url + "/update" + certification.id, JSON.stringify({}),
       {headers: headers, params: params});
   }
 }

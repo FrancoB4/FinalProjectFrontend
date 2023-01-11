@@ -11,6 +11,7 @@ export class ProjectCardComponent {
   @Input() name: string | undefined;
   @Input() description: string | undefined;
   @Input() url: string | undefined;
+  @Input() id: number | undefined;
 
 
   public loggedIn: boolean = false;

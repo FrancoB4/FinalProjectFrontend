@@ -39,6 +39,6 @@ export class StudyService {
       .append('description', study.description)
       .append('date', study.date)
       .append('state', study.state);
-    return this.http.patch<Study>(this.url + "/update" + study.id, JSON.stringify({}), {headers: headers, params: params});
+    return this.http.put<Study>(this.url + "/update" + study.id, JSON.stringify({}), {headers: headers, params: params});
   }
 }

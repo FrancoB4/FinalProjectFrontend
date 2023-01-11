@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectService} from "../../services/project.service";
+import {Project} from "../../model/project";
 
 @Component({
   selector: 'app-project-update',
@@ -13,6 +14,7 @@ export class ProjectUpdateComponent {
   @Input() name: string | undefined;
   @Input() description: string | undefined;
   @Input() url: string | undefined;
+  @Input() id: number | undefined;
 
 
   constructor(private fb: FormBuilder, private projectService: ProjectService) {
@@ -26,7 +28,8 @@ export class ProjectUpdateComponent {
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.projectService.updateProject(this.form.value)
+      this.projectService.updateProject(new Project(this.form.value.name, this.form.value.description,
+        this.form.value.url, this.form.value.image, this.id))
     } else {
       this.form.markAllAsTouched()
     }
