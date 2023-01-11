@@ -5,8 +5,8 @@
       <div class="col-auto">
         <img src="assets/icons/My_image.jpg" alt="logo" class="img-fluid rounded-circle">
       </div>
-      <div *ngIf="loggedIn" class="position-absolute top-0 end-0">
-        <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+      <div *ngIf="loggedIn" class="position-absolute" style="top: 40px; right: 40px">
+        <button class="btn rounded-circle btn-success p-1 pb-0"><mat-icon>border_color</mat-icon></button>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
@@ -32,7 +32,7 @@
       </h1>
     </div>
     <div *ngIf="loggedIn" class="position-absolute">
-      <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+      <button class="btn rounded-circle btn-success p-1 pb-0"><mat-icon>border_color</mat-icon></button>
     </div>
   </div>
 </div>

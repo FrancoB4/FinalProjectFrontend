@@ -1,0 +1,18 @@
+<div class="card text-dark bg-light position-relative">
+  <img class="card-img-top" src="{{image}}" alt="Card image cap">
+  <div *ngIf="loggedIn" class="position-absolute top-0 end-0 mt-2 me-2">
+    <button class="btn btn-success rounded-circle p-1 pb-0" (click)="toggleUpdating()"><mat-icon>border_color</mat-icon></button>
+  </div>
+  <div *ngIf="!updating||!loggedIn" class="card-body">
+    <h3 class="card-title text-uppercase">{{name}}</h3>
+    <p class="card-text">{{description}}</p>
+    <div class="row justify-content-between ms-1">
+      <a href="{{url}}" class="btn btn-primary col-auto" target="_blank">Go somewhere</a>
+    </div>
+  </div>
+  <app-project-update *ngIf="updating&&loggedIn"
+                      [name]="name" [description]="description"
+                      [url]="url" [image]="image">
+  </app-project-update>
+
+</div>

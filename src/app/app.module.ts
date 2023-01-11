@@ -21,6 +21,11 @@ import { CreateProjectComponent } from './components/create-project/create-proje
 import { CreateStudyComponent } from './components/create-study/create-study.component';
 import { CreateCompetenceComponent } from './components/create-competence/create-competence.component';
 import { CreateCertificationComponent } from './components/create-certification/create-certification.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ProjectUpdateComponent } from './components/project-update/project-update.component';
+import { CompetencesUpdateComponent } from './components/academic/competences-update/competences-update.component';
+import { CertificationsUpdateComponent } from './components/academic/certifications-update/certifications-update.component';
+import { StudiesUpdateComponent } from './components/academic/studies-update/studies-update.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { CreateCertificationComponent } from './components/create-certification/
     CreateProjectComponent,
     CreateStudyComponent,
     CreateCompetenceComponent,
-    CreateCertificationComponent
+    CreateCertificationComponent,
+    ProjectCardComponent,
+    ProjectUpdateComponent,
+    CompetencesUpdateComponent,
+    CertificationsUpdateComponent,
+    StudiesUpdateComponent,
   ],
     imports: [
         BrowserModule,

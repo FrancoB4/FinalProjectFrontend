@@ -31,4 +31,14 @@ export class StudyService {
   deleteEducation(id: number): Observable<Study> {
     return this.http.delete<Study>(this.url + "/" + id);
   }
+
+  updateEducation(study: Study): Observable<Study> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams()
+      .append('institution', study.institution)
+      .append('description', study.description)
+      .append('date', study.date)
+      .append('state', study.state);
+    return this.http.patch<Study>(this.url + "/update" + study.id, JSON.stringify({}), {headers: headers, params: params});
+  }
 }

@@ -28,4 +28,11 @@ export class CompetenceService {
   deleteCompetence(id: number): Observable<Competence> {
     return this.http.delete<Competence>(this.url + "/" + id);
   }
+
+  updateCompetence(competence: Competence): Observable<Competence> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams().append('name', competence.name)
+      .append('level', competence.level);
+    return this.http.patch<Competence>(this.url + "/update" + competence.id, JSON.stringify({}), {headers: headers, params: params});
+  }
 }

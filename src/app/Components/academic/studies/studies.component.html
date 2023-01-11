@@ -2,13 +2,13 @@
   <div class="row justify-content-between">
     <h4 class="col-auto">Educación:</h4>
     <div *ngIf="loggedIn" class="col-auto">
-      <button class="btn rounded-circle btn-success" (click)="toggleAdding()">+</button>
+      <button class="btn rounded-circle btn-outline-success" (click)="toggleAdding()">+</button>
     </div>
   </div>
 
   <app-create-study *ngIf="adding && loggedIn"></app-create-study>
 
-  <div class="container me-0">
+  <div class="container me-0 mt-2">
     <div *ngFor="let study of studies" class="row border-bottom mb-2">
       <div class="col-auto">
         <h5>{{study.institution}}</h5>
@@ -20,7 +20,7 @@
           <p class="text-end">{{study.state}}</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
           <p class="text-end">En curso (2do año)</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
           <p class="text-end">En curso</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
           <p class="text-end">Finalizado</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@
           <p class="text-end">Finalizado</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
           <p class="text-end">Finalizado</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@
           <p class="text-end">Finalizado</p>
         </div>
         <div *ngIf="loggedIn" class="col-auto">
-          <button class="btn rounded-circle btn-success"><mat-icon>border_color</mat-icon></button>
+          <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0"><mat-icon>border_color</mat-icon></button>
         </div>
       </div>
     </div>

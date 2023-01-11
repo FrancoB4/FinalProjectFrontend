@@ -32,4 +32,15 @@ export class ProjectService {
   deleteProject(id: number): Observable<Project> {
     return this.http.delete<Project>(this.url + "/" + id);
   }
+
+  updateProject(project: Project): Observable<Project> {
+    const headers = new HttpHeaders();
+    const params = new HttpParams()
+      .append('name', project.name)
+      .append('description', project.description)
+      .append('url', project.url)
+      .append('image', project.image);
+    return this.http.patch<Project>(this.url + "/update" + project.id, JSON.stringify({}), {headers: headers,
+      params: params});
+  }
 }
