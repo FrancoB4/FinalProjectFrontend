@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CertificationService} from "../../../services/certification.service";
+import {Certification} from "../../../model/certification";
 
 @Component({
   selector: 'app-certifications-update',
@@ -22,7 +23,8 @@ export class CertificationsUpdateComponent {
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.certificationService.updateCertification(this.form.value)
+      this.certificationService.updateCertification(new Certification(this.form.value.url, this.form.value.url_img))
+        .subscribe()
     } else {
       this.form.markAllAsTouched()
     }

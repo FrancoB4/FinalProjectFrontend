@@ -15,10 +15,7 @@ export class CertificationService {
   }
 
   create(certification: Certification): Observable<Certification> {
-    const headers = new HttpHeaders();
-    const params = new HttpParams().append('name', certification.url)
-      .append('description', certification.url_img);
-    return this.http.post<Certification>(this.url + "/create", JSON.stringify({}), {headers: headers, params: params});
+    return this.http.post<Certification>(this.url + "/create", certification);
   }
 
   getCertificationById(id: number): Observable<Certification> {

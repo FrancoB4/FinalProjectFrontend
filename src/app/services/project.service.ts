@@ -21,8 +21,7 @@ export class ProjectService {
       .append('description', project.description)
       .append('url', project.url)
       .append('image', project.image);
-    return this.http.post<Project>(this.url + "/create", JSON.stringify({}), {headers: headers,
-      params: params});
+    return this.http.post<Project>(this.url + "/create", project);
   }
 
   getProjectById(id: number): Observable<Project> {

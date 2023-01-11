@@ -15,10 +15,7 @@ export class CompetenceService {
   }
 
   create(competence: Competence): Observable<Competence> {
-    const headers = new HttpHeaders();
-    const params = new HttpParams().append('name', competence.name)
-      .append('level', competence.level);
-    return this.http.post<Competence>(this.url + "/create", JSON.stringify({}), {headers: headers, params: params});
+    return this.http.post<Competence>(this.url + "/create", competence);
   }
 
   getCompetenceById(id: number): Observable<Competence> {
