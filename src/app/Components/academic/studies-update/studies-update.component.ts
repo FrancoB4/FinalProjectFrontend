@@ -24,7 +24,7 @@ export class StudiesUpdateComponent {
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.studyService.updateEducation(new Study(this.form.value.institution, this.form.value.description,
+      this.studyService.updateStudy(new Study(this.form.value.institution, this.form.value.description,
         this.form.value.date, this.form.value.state, this.study.id)).subscribe();
     } else {
       this.form.markAllAsTouched()

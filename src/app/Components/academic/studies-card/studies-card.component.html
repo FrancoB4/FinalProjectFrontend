@@ -11,5 +11,9 @@
     <button class="btn rounded-circle btn-outline-success rounded-circle p-1 pb-0" (click)="toggleUpdating()">
       <mat-icon>border_color</mat-icon></button>
   </div>
+  <div *ngIf="loggedIn" class="col-auto">
+    <button class="btn rounded-circle btn-danger p-1 pb-0" (click)="deleteStudy()">
+      <mat-icon>delete</mat-icon></button>
+  </div>
 </div>
 <app-studies-update *ngIf="updating&&loggedIn" [study]="study" class="row"></app-studies-update>

@@ -19,7 +19,7 @@ export class StudiesComponent implements OnDestroy {
     this.loggedServiceSubscription = this.loggedService.isLoggedIn().subscribe(value => {
       this.loggedIn = value
     });
-    this.educationService.getEducations().subscribe(value => {
+    this.educationService.getStudies().subscribe(value => {
       this.studies = value;
     });
   }

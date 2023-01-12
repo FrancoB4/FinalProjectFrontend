@@ -7,5 +7,10 @@
       <mat-icon>border_color</mat-icon>
     </button>
   </div>
+  <div *ngIf="loggedIn" class="col-auto bg-transparent position-absolute top-0 start-0 ms-1 mt-1 ">
+    <button class="btn rounded-circle btn-danger rounded-circle p-1 pb-0" (click)="deleteCertification()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
   <app-certifications-update *ngIf="loggedIn&&updating"></app-certifications-update>
 </div>

@@ -22,7 +22,7 @@ export class CompetenceService {
     return this.http.get<Competence>(this.url + "/" + id);
   }
 
-  deleteCompetence(id: number): Observable<Competence> {
+    deleteCompetence(id: number | undefined): Observable<Competence> {
     return this.http.delete<Competence>(this.url + "/" + id);
   }
 
@@ -30,6 +30,6 @@ export class CompetenceService {
     const headers = new HttpHeaders();
     const params = new HttpParams().append('name', competence.name)
       .append('level', competence.level);
-    return this.http.put<Competence>(this.url + "/update" + competence.id, JSON.stringify({}), {headers: headers, params: params});
+    return this.http.put<Competence>(this.url + "/" + competence.id, JSON.stringify({}), {headers: headers, params: params});
   }
 }

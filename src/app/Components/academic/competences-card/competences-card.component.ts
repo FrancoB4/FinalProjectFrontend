@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoggedService} from "../../../services/logged.service";
+import {CompetenceService} from "../../../services/competence.service";
 
 @Component({
   selector: 'app-competences-card',
@@ -14,7 +15,7 @@ export class CompetencesCardComponent implements OnInit{
   public loggedIn: boolean = false;
   public updating: boolean = false;
 
-  constructor(private loggedService: LoggedService) {
+  constructor(private loggedService: LoggedService, private competenceService: CompetenceService) {
     this.loggedService.isLoggedIn().subscribe(value => {
       this.loggedIn = value
     });
@@ -30,5 +31,9 @@ export class CompetencesCardComponent implements OnInit{
 
   toggleUpdating() {
     this.updating = !this.updating;
+  }
+
+  deleteCompetence() {
+    this.competenceService.deleteCompetence(this.id).subscribe();
   }
 }

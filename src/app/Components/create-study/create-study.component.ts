@@ -16,7 +16,7 @@ export class CreateStudyComponent {
       institution: ['', Validators.required],
       description: ['', Validators.required],
       date: ['', Validators.required],
-      image: ['', Validators.required]
+      state: ['', Validators.required]
     });
   }
 

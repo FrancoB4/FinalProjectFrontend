@@ -22,4 +22,8 @@ export class StudiesCardComponent {
   toggleUpdating() {
     this.updating = !this.updating;
   }
+
+  deleteStudy() {
+    this.studyService.deleteStudy(this.study.id).subscribe()
+  }
 }

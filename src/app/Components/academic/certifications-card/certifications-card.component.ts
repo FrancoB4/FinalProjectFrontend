@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {LoggedService} from "../../../services/logged.service";
+import {CertificationService} from "../../../services/certification.service";
 
 @Component({
   selector: 'app-certifications-card',
@@ -12,7 +13,7 @@ export class CertificationsCardComponent {
   public loggedIn: boolean = false;
   public updating: boolean = false;
 
-  constructor(private loggedService: LoggedService) {
+  constructor(private loggedService: LoggedService, private certificationService: CertificationService) {
     this.loggedService.isLoggedIn().subscribe((value) => {
       this.loggedIn = value;
     });
@@ -20,5 +21,9 @@ export class CertificationsCardComponent {
 
   toggleUpdating() {
     this.updating = !this.updating;
+  }
+
+  deleteCertification() {
+    this.certificationService.deleteCertification(this.url).subscribe();
   }
 }

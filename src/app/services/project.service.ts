@@ -25,11 +25,11 @@ export class ProjectService {
   }
 
   getProjectById(id: number): Observable<Project> {
-    return this.http.get<Project>(this.url+ "/" + id);
+    return this.http.get<Project>(this.url + '/' + id);
   }
 
   deleteProject(id: number | undefined): Observable<Project> {
-    return this.http.delete<Project>(this.url + "/" + id);
+    return this.http.delete<Project>(this.url + '/' + id);
   }
 
   updateProject(project: Project): Observable<Project> {
@@ -38,8 +38,8 @@ export class ProjectService {
       .append('name', project.name)
       .append('description', project.description)
       .append('url', project.url)
-      .append('image', project.image)
-    return this.http.put<Project>(this.url + '/edit/' + project.id, JSON.stringify({}), {headers: headers,
+      .append('image', project.image);
+    return this.http.put<Project>(this.url + '/' + project.id, JSON.stringify({}), {headers: headers,
       params: params});
   }
 }
