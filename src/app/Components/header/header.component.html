@@ -1,11 +1,21 @@
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-dark fixed-top bg-dark justify-content-between">
-      <a class="col-1 navbar-brand ps-2">FBV</a>
+    <nav class="navbar navbar-dark fixed-top bg-dark justify-content-sm-between justify-content-center">
+      <img class="navbar-brand img-fluid py-0 my-0 col-8 col-sm-4 col-md-3 col-lg-2 col-xl-1"
+           src="../../../assets/icons/Argentina_Programa.png" alt="">
       <ul class="navbar-nav col-auto">
         <div class="row pe-2">
           <li class="nav-item active col-auto ps-sm-1 ps-1">
-            <a class="nav-link" routerLink="/home">Home</a>
+            <a href="https://www.linkedin.com/in/francob4/" target="_blank" class="nav-link btn py-0">
+              <img class="img-fluid" src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="" width="37"></a>
+          </li>
+          <li class="nav-item active col-auto ps-sm-1 ps-1">
+            <a href="https://github.com/FrancoB4/" target="_blank" class="nav-link btn py-0">
+              <img class="img-fluid" src="https://cdn-icons-png.flaticon.com/512/1322/1322053.png" alt="" width="37"></a>
+          </li>
+          <li class="nav-item active col-auto ps-sm-1 ps-1">
+            <a href="https://twitter.com/Fran__Bonfiglio" target="_blank" class="nav-link btn py-0">
+              <img class="img-fluid" src="https://cdn-icons-png.flaticon.com/512/3256/3256013.png" alt="" width="37"></a>
           </li>
           <li *ngIf="!loggedIn" class="nav-item col-auto ps-sm-1 ps-1">
             <button class="btn btn-outline-success" (click)="onLogin()">Login</button>

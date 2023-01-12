@@ -28,7 +28,7 @@ export class ProjectService {
     return this.http.get<Project>(this.url+ "/" + id);
   }
 
-  deleteProject(id: number): Observable<Project> {
+  deleteProject(id: number | undefined): Observable<Project> {
     return this.http.delete<Project>(this.url + "/" + id);
   }
 
@@ -38,8 +38,8 @@ export class ProjectService {
       .append('name', project.name)
       .append('description', project.description)
       .append('url', project.url)
-      .append('image', project.image);
-    return this.http.put<Project>(this.url + "/edit" + project.id, JSON.stringify({}), {headers: headers,
+      .append('image', project.image)
+    return this.http.put<Project>(this.url + '/edit/' + project.id, JSON.stringify({}), {headers: headers,
       params: params});
   }
 }

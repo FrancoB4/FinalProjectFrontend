@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {LoggedService} from "../../services/logged.service";
+import {ProjectService} from "../../services/project.service";
 
 @Component({
   selector: 'app-project-card',
@@ -17,7 +18,7 @@ export class ProjectCardComponent {
   public loggedIn: boolean = false;
   public updating: boolean = false;
 
-  constructor(loggedService: LoggedService) {
+  constructor(private loggedService: LoggedService, private projectService: ProjectService) {
     loggedService.isLoggedIn().subscribe((value: boolean) => {
       this.loggedIn = value;
     });
@@ -25,5 +26,9 @@ export class ProjectCardComponent {
 
   toggleUpdating() {
     this.updating = !this.updating;
+  }
+
+  deleteProject() {
+    this.projectService.deleteProject(this.id).subscribe();
   }
 }

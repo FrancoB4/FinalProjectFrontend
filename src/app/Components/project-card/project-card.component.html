@@ -7,7 +7,8 @@
     <h3 class="card-title text-uppercase">{{name}}</h3>
     <p class="card-text">{{description}}</p>
     <div class="row justify-content-between ms-1">
-      <a href="{{url}}" class="btn btn-primary col-auto" target="_blank">Go somewhere</a>
+      <a href="{{url}}" class="btn btn-dark col-auto" target="_blank">Repositorio</a>
+      <button *ngIf="loggedIn" class="btn btn-danger col-auto me-3" (click)="deleteProject()">Eliminar</button>
     </div>
   </div>
   <app-project-update *ngIf="updating&&loggedIn"
