@@ -26,11 +26,11 @@ export class CertificationService {
     return this.http.delete<Certification>(this.url + "/" + id);
   }
 
-  updateCertification(certification: Certification): Observable<Certification> {
+  updateCertification(id: number | undefined, certification: Certification): Observable<Certification> {
     const headers = new HttpHeaders();
     const params = new HttpParams().append('name', certification.url)
-      .append('description', certification.url_img);
-    return this.http.put<Certification>(this.url + "/" + certification.id, JSON.stringify({}),
+      .append('description', certification.image);
+    return this.http.put<Certification>(this.url + "/" + id, JSON.stringify({}),
       {headers: headers, params: params});
   }
 }

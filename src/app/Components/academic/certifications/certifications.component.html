@@ -10,10 +10,6 @@
 
   <div class="row card-group pb-2 ps-3 pe-2">
     <app-certifications-card *ngFor="let cert of certifications" class="col-md-3 ps-0 pb-2"
-                             [url]="cert.url" [url_img]="cert.url_img"></app-certifications-card>
-
-    <app-certifications-card *ngFor="let _ of x" class="col-md-3 ps-0 pb-2"
-                             [url]="'https://github.com/FrancoB4/FinalProjectFrontend'"
-                             [url_img]="'https://i.pinimg.com/564x/34/93/63/349363f73373c0783b5ea72086232202.jpg'"></app-certifications-card>
+                             [url]="cert.url" [image]="cert.image"></app-certifications-card>
   </div>
 </div>

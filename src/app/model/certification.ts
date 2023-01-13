@@ -1,11 +1,11 @@
 export class Certification {
   id: number | undefined;
   url: string;
-  url_img: string;
+  image: string;
 
-  constructor(url: string, url_img: string, id?:number) {
+  constructor(url: string, image: string, id?:number) {
     this.id = id;
     this.url = url;
-    this.url_img = url_img;
+    this.image = image;
   }
 }

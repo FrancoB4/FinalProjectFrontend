@@ -9,7 +9,7 @@ import {CertificationService} from "../../../services/certification.service";
 })
 export class CertificationsCardComponent {
   @Input() url: string | undefined;
-  @Input() url_img: string | undefined;
+  @Input() image: string | undefined;
   public loggedIn: boolean = false;
   public updating: boolean = false;
 

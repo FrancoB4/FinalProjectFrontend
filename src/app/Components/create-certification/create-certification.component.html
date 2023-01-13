@@ -3,14 +3,14 @@
     <div class="col-6 col-md-6 col-lg-5 col-xl-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center">Add Project:</h5>
+          <h5 class="card-title text-center text-dark">Add Certification:</h5>
           <form [formGroup]="form" (ngSubmit)="onSubmitted($event)">
             <label for="url">URL</label>
             <input type="text" class="form-control" id="url" placeholder="Enter url"
                    formControlName="url">
-            <label for="url_img">Image URL</label>
-            <input type="url" class="form-control mb-1" id="url_img" placeholder="Enter Image url"
-                   formControlName="url">
+            <label for="image">Image URL</label>
+            <input type="url" class="form-control mb-1" id="image" placeholder="Enter Image url"
+                   formControlName="image">
             <button class="col-auto btn btn-primary mt-2 me-2" type="submit">Submit</button>
           </form>
         </div>

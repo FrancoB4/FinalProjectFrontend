@@ -1,6 +1,6 @@
 <div class="card position-relative">
   <a href="{{url}}" target="_blank">
-    <img src="{{url_img}}" class="card-img-top img-fluid" alt="...">
+    <img src="{{image}}" class="card-img-top img-fluid" alt="">
   </a>
   <div *ngIf="loggedIn" class="col-auto bg-transparent position-absolute top-0 end-0 me-1 mt-1 ">
     <button class="btn rounded-circle btn-success rounded-circle p-1 pb-0" (click)="toggleUpdating()">
@@ -12,5 +12,5 @@
       <mat-icon>delete</mat-icon>
     </button>
   </div>
-  <app-certifications-update *ngIf="loggedIn&&updating"></app-certifications-update>
+  <app-certifications-update [url]="url" [image]="image" *ngIf="loggedIn&&updating"></app-certifications-update>
 </div>

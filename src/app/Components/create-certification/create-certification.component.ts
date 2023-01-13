@@ -14,22 +14,22 @@ export class CreateCertificationComponent {
   constructor(private fb: FormBuilder, private certificationService: CertificationService) {
     this.form = fb.group({
       url: ['', Validators.required],
-      url_img: ['', Validators.required]
+      image: ['', Validators.required]
     });
   }
 
   get Url() {
     return this.form.get('url');
   }
-  get UrlImg() {
-    return this.form.get('url_img');
+  get Image() {
+    return this.form.get('image');
   }
 
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
       this.certificationService.create(new Certification(
-        this.Url?.value, this.UrlImg?.value)).subscribe();
+        this.Url?.value, this.Image?.value)).subscribe();
     } else {
       this.form.markAllAsTouched();
     }

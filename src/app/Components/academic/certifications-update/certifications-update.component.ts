@@ -10,8 +10,9 @@ import {Certification} from "../../../model/certification";
 })
 export class CertificationsUpdateComponent {
   form: FormGroup
-  @Input() url_img: string | undefined;
   @Input() url: string | undefined;
+  @Input() image: string | undefined;
+  @Input() id: number | undefined;
 
 
   constructor(private fb: FormBuilder, private certificationService: CertificationService) {
@@ -23,7 +24,7 @@ export class CertificationsUpdateComponent {
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.certificationService.updateCertification(new Certification(this.form.value.url, this.form.value.url_img))
+      this.certificationService.updateCertification(this.id, new Certification(this.form.value.url, this.form.value.url_img))
         .subscribe()
     } else {
       this.form.markAllAsTouched()

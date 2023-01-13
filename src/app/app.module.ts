@@ -29,6 +29,7 @@ import { StudiesUpdateComponent } from './components/academic/studies-update/stu
 import { CertificationsCardComponent } from './components/academic/certifications-card/certifications-card.component';
 import { CompetencesCardComponent } from './components/academic/competences-card/competences-card.component';
 import { StudiesCardComponent } from './components/academic/studies-card/studies-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { StudiesCardComponent } from './components/academic/studies-card/studies
     CertificationsCardComponent,
     CompetencesCardComponent,
     StudiesCardComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,
