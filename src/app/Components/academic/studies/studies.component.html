@@ -9,7 +9,7 @@
   <app-create-study *ngIf="adding && loggedIn"></app-create-study>
 
   <div class="container me-0 mt-2">
-    <app-studies-card *ngFor="let study of studies.reverse()" class="row border-bottom mb-2 justify-content-between" [study]="study">
+    <app-studies-card *ngFor="let study of studies" class="row border-bottom mb-2 justify-content-between" [study]="study">
     </app-studies-card>
 
     <div class="row border-bottom mb-2 justify-content-between">

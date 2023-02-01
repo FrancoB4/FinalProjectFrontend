@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/internal/Subscription";
 import {Study} from "../../../model/study";
 import {LoggedService} from "../../../services/logged.service";
@@ -20,7 +20,7 @@ export class StudiesComponent implements OnDestroy {
       this.loggedIn = value
     });
     this.educationService.getStudies().subscribe(value => {
-      this.studies = value;
+      this.studies = value.reverse();
     });
   }
 

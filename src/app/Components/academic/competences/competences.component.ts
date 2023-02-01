@@ -22,7 +22,7 @@ export class CompetencesComponent implements OnInit, OnDestroy {
       this.loggedIn = value
     });
     this.competencesService.getCompetences().subscribe(value => {
-      this.competences = value;
+      this.competences = value.reverse();
     });
   }
 
