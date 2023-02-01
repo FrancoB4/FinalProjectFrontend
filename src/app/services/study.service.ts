@@ -32,7 +32,7 @@ export class StudyService {
     const params = new HttpParams()
       .append('institution', study.institution)
       .append('description', study.description)
-      .append('date', study.date)
+      .append('startDate', study.startDate)
       .append('state', study.state);
     return this.http.put<Study>(this.url + "/" + study.id, JSON.stringify({}), {headers: headers, params: params});
   }
