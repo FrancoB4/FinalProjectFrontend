@@ -30,7 +30,7 @@ export class CreateStudyComponent {
     return this.form.get('date');
   }
   get State() {
-    return this.form.get('image');
+    return this.form.get('state');
   }
 
   onSubmitted(event: Event) {
