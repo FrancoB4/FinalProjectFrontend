@@ -30,7 +30,7 @@ export class ProjectUpdateComponent {
     if (this.form.valid) {
       this.projectService.updateProject(new Project(this.form.value.name, this.form.value.description,
         this.form.value.url, this.form.value.image, this.id)).subscribe()
-      console.log("here");
+      this.projectService.toggleUpdates();
     } else {
       this.form.markAllAsTouched()
     }

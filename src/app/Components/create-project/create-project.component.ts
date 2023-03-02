@@ -38,7 +38,7 @@ export class CreateProjectComponent {
     if (this.form.valid) {
       this.projectService.create(new Project(
         this.Name?.value, this.Description?.value, this.Url?.value, this.Image?.value)).subscribe();
-      console.log("here")
+      this.projectService.toggleUpdates();
     } else {
       this.form.markAllAsTouched();
     }

@@ -38,6 +38,7 @@ export class CreateStudyComponent {
     if (this.form.valid) {
       this.studyService.create(new Study(
         this.Institution?.value, this.Description?.value, this.Date?.value, this.State?.value)).subscribe();
+      this.studyService.toggleUpdates();
     } else {
       this.form.markAllAsTouched();
     }

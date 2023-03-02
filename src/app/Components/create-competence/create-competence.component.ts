@@ -30,6 +30,7 @@ export class CreateCompetenceComponent {
     if (this.form.valid) {
       this.competenceService.create(new Competence(
         this.Name?.value, this.Level?.value)).subscribe();
+      this.competenceService.toggleUpdates();
     } else {
       this.form.markAllAsTouched();
     }

@@ -22,7 +22,23 @@ export class CertificationsComponent implements OnDestroy{
     this.certificationService.getCertifications().subscribe(value => {
       this.certifications = value;
     });
+    this.certificationService.getUpdates().subscribe(updates => {
+      if (updates) {
+        this.updateCertifications().then(r => {});
+      }
+    });
   }
+
+  async updateCertifications() {
+    let response = await this.certificationService.getCertifications().toPromise();
+    if (response) {
+      this.certificationService.getCertifications().subscribe(value => {
+        this.certifications = value;
+      });
+      this.certificationService.toggleUpdates();
+    }
+  }
+
   ngOnDestroy() {
     this.loggedServiceSubscription?.unsubscribe();
   }

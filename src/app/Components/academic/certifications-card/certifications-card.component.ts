@@ -10,6 +10,7 @@ import {CertificationService} from "../../../services/certification.service";
 export class CertificationsCardComponent {
   @Input() url: string | undefined;
   @Input() image: string | undefined;
+  @Input() id: number | undefined;
   public loggedIn: boolean = false;
   public updating: boolean = false;
 
@@ -24,6 +25,7 @@ export class CertificationsCardComponent {
   }
 
   deleteCertification() {
-    this.certificationService.deleteCertification(this.url).subscribe();
+    this.certificationService.deleteCertification(this.id as number).subscribe();
+    this.certificationService.toggleUpdates();
   }
 }

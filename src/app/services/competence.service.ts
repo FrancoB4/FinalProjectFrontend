@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import { Observable } from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import { Competence } from "../model/competence";
 
 @Injectable({
@@ -8,7 +8,16 @@ import { Competence } from "../model/competence";
 })
 export class CompetenceService {
   private url: string = "https://backend-service-web.onrender.com/competences";
+  private _updates = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) { }
+
+  toggleUpdates(): void {
+    this._updates.next(!this._updates.value);
+  }
+
+  getUpdates(): Observable<boolean> {
+    return this._updates.asObservable();
+  }
 
   getCompetences(): Observable<Competence[]> {
     return this.http.get<Competence[]>(this.url);

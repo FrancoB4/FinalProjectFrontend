@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Project} from "../model/project";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Injectable({
@@ -8,7 +8,16 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 })
 export class ProjectService {
   private url: string = "https://backend-service-web.onrender.com/projects";
+  private _updates = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) { }
+
+  toggleUpdates(): void {
+    this._updates.next(!this._updates.value);
+  }
+
+  getUpdates(): Observable<boolean> {
+    return this._updates.asObservable();
+  }
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.url);

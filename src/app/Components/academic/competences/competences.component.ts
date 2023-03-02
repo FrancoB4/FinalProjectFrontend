@@ -24,6 +24,21 @@ export class CompetencesComponent implements OnInit, OnDestroy {
     this.competencesService.getCompetences().subscribe(value => {
       this.competences = value.reverse();
     });
+    this.competencesService.getUpdates().subscribe(updates => {
+      if (updates) {
+        this.updateCompetences().then(r => {});
+      }
+    });
+  }
+
+  async updateCompetences() {
+    let response = await this.competencesService.getCompetences().toPromise();
+    if (response) {
+      this.competencesService.getCompetences().subscribe(value => {
+        this.competences = value.reverse();
+      });
+      this.competencesService.toggleUpdates();
+    }
   }
 
   toggleAdding() {

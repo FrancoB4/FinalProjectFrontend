@@ -22,6 +22,21 @@ export class ProjectsComponent implements OnDestroy {
     this.loggedServiceSubscription = this.loggedService.isLoggedIn().subscribe((value: boolean) => {
       this.loggedIn = value;
     });
+    this.projectService.getUpdates().subscribe(updates => {
+      if (updates) {
+        this.updateProjects().then(r => {});
+      }
+    });
+  }
+
+  async updateProjects() {
+    let response = await this.projectService.getProjects().toPromise();
+    if (response) {
+      this.projectService.getProjects().subscribe(value => {
+        this.projects = value
+      });
+      this.projectService.toggleUpdates();
+    }
   }
 
   ngOnDestroy() {

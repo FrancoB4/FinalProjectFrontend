@@ -30,5 +30,6 @@ export class ProjectCardComponent {
 
   deleteProject() {
     this.projectService.deleteProject(this.id).subscribe();
+    this.projectService.toggleUpdates();
   }
 }

@@ -18,14 +18,15 @@ export class CertificationsUpdateComponent {
   constructor(private fb: FormBuilder, private certificationService: CertificationService) {
     this.form = fb.group({
       url: ['', Validators.required],
-      url_img: ['', Validators.required]
+      image: ['', Validators.required]
     })
   }
   onSubmitted(event: Event) {
     event.preventDefault()
     if (this.form.valid) {
-      this.certificationService.updateCertification(this.id, new Certification(this.form.value.url, this.form.value.url_img))
+      this.certificationService.updateCertification(new Certification(this.form.value.url, this.form.value.image, this.id))
         .subscribe()
+      this.certificationService.toggleUpdates()
     } else {
       this.form.markAllAsTouched()
     }

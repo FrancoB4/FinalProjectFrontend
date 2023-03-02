@@ -30,6 +30,7 @@ export class CreateCertificationComponent {
     if (this.form.valid) {
       this.certificationService.create(new Certification(
         this.Url?.value, this.Image?.value)).subscribe();
+      this.certificationService.toggleUpdates();
     } else {
       this.form.markAllAsTouched();
     }

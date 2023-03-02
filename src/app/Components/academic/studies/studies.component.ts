@@ -11,17 +11,33 @@ import {StudyService} from "../../../services/study.service";
 })
 export class StudiesComponent implements OnDestroy {
   private loggedServiceSubscription: Subscription | undefined;
+  public update: boolean | undefined;
   public studies: Study[] = [];
   public loggedIn: boolean | undefined;
   public adding: boolean = false;
 
-  constructor(private loggedService: LoggedService, private educationService: StudyService) {
+  constructor(private loggedService: LoggedService, private studyService: StudyService) {
     this.loggedServiceSubscription = this.loggedService.isLoggedIn().subscribe(value => {
       this.loggedIn = value
     });
-    this.educationService.getStudies().subscribe(value => {
+    this.studyService.getStudies().subscribe(value => {
       this.studies = value.reverse();
     });
+    this.studyService.getUpdates().subscribe(updates => {
+      if (updates){
+        this.updateStudies().then(r => {});
+      }
+    });
+  }
+
+  async updateStudies() {
+    let response = await this.studyService.getStudies().toPromise();
+    if (response){
+      this.studyService.getStudies().subscribe(value => {
+        this.studies = value.reverse();
+      });
+      this.studyService.toggleUpdates();
+    }
   }
 
   toggleAdding() {

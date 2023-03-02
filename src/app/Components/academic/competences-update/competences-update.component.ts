@@ -26,6 +26,7 @@ export class CompetencesUpdateComponent {
     if (this.form.valid) {
       this.competenceService.updateCompetence(new Competence(this.form.value.name, this.form.value.level, this.id))
         .subscribe()
+      this.competenceService.toggleUpdates();
     } else {
       this.form.markAllAsTouched()
     }

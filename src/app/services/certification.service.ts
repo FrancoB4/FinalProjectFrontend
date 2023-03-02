@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Certification} from "../model/certification";
 
 @Injectable({
@@ -8,7 +8,16 @@ import {Certification} from "../model/certification";
 })
 export class CertificationService {
   private url: string = "https://backend-service-web.onrender.com/certifications";
+  private _updates = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) { }
+
+  toggleUpdates(): void {
+    this._updates.next(!this._updates.value);
+  }
+
+  getUpdates(): Observable<boolean> {
+    return this._updates.asObservable();
+  }
 
   getCertifications(): Observable<Certification[]> {
     return this.http.get<Certification[]>(this.url);
@@ -22,15 +31,16 @@ export class CertificationService {
     return this.http.get<Certification>(this.url + "/" + id);
   }
 
-    deleteCertification(id: string | undefined): Observable<Certification> {
+  deleteCertification(id: number): Observable<Certification> {
     return this.http.delete<Certification>(this.url + "/" + id);
   }
 
-  updateCertification(id: number | undefined, certification: Certification): Observable<Certification> {
+  updateCertification(certification: Certification): Observable<Certification> {
     const headers = new HttpHeaders();
-    const params = new HttpParams().append('name', certification.url)
-      .append('description', certification.image);
-    return this.http.put<Certification>(this.url + "/" + id, JSON.stringify({}),
+    const params = new HttpParams()
+      .append('url', certification.url)
+      .append('image', certification.image);
+    return this.http.put<Certification>(this.url + "/" + certification.id, JSON.stringify({}),
       {headers: headers, params: params});
   }
 }

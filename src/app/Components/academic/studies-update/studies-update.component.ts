@@ -26,6 +26,7 @@ export class StudiesUpdateComponent {
     if (this.form.valid) {
       this.studyService.updateStudy(new Study(this.form.value.institution, this.form.value.description,
         this.form.value.date, this.form.value.state, this.study.id)).subscribe();
+      this.studyService.toggleUpdates();
     } else {
       this.form.markAllAsTouched()
     }

@@ -35,5 +35,6 @@ export class CompetencesCardComponent implements OnInit{
 
   deleteCompetence() {
     this.competenceService.deleteCompetence(this.id).subscribe();
+    this.competenceService.toggleUpdates();
   }
 }
